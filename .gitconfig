@@ -1,0 +1,49 @@
+[user]
+	name = Laimis.Peciulis
+	email = Laimis.Peciulis@4finance.com
+[alias]
+	ci = commit
+	cim = commit -m
+	st = status
+	co = checkout
+	purge = clean -f -d
+	purr = pull --rebase
+	find = !sh -c 'git ls-tree -r --name-only HEAD | grep --color $1' -	
+	com = checkout master
+	br = branch
+	bra = branch --all
+	brl = branch --list
+	ft = fetch
+	in = !git fetch && git log ..FETCH_HEAD
+	out = !git fetch && git log FETCH_HEAD..
+	dt = difftool
+	diffs = difftool -d .
+	brclean = remote prune origin
+	#lg = log --pretty=format:'%C(auto)%h %C(white dim)%<(10,trunc)%ad %Creset%Cblue%<(18,trunc)%an %Creset - %s %C(auto)%d' --date=short --abbrev=8
+	ls = log --pretty=format:'%C(auto)%h %C(blue dim)%cd %<|(49,trunc)%an %C(reset)%s' --date=short --abbrev=8 --no-merges
+	#gl = log --pretty=format:'%C(auto)%h %C(white dim)%<(10,trunc)%ad %Creset%Cblue%<(18,trunc)%an %Creset - %s %C(auto)%d' --date=short --graph
+	gla = log --pretty=format:'%C(auto)%h %C(white dim)%<(10,trunc)%ad %Creset%Cblue%<(18,trunc)%an %Creset - %s %C(auto)%d' --date=short --graph --all
+	sq = !sh -c 'git reset --soft HEAD~$1 && git commit' -
+[core]
+	editor = "gedit -w -s"
+[color]
+	ui = true
+[diff]
+	tool = p4merge
+[difftool]
+	prompt = false
+[difftool "p4merge"]
+	cmd = "p4merge $LOCAL $REMOTE"
+[merge]
+	tool = p4merge
+[mergetool]
+	prompt = false
+	keepBackup = false
+[mergetool "p4merge"]
+	cmd = "p4merge $BASE $LOCAL $REMOTE $MERGED"
+[push]
+	default = simple
+#[credential]
+#	helper = cache --timeout=28800
+[url "https://"]
+	insteadOf = git://
